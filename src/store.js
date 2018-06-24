@@ -10,6 +10,7 @@ fb.auth.onAuthStateChanged(user => {
         store.commit('setCurrentUser', user)
         store.dispatch('fetchUserProfile')
 
+        console.log(fb.usersCollection.doc(user.uid))
         fb.usersCollection.doc(user.uid).onSnapshot(doc => {
             store.commit('setUserProfile', doc.data())
         })
@@ -69,7 +70,7 @@ export const store = new Vuex.Store({
         updateProfile({ commit, state }, data) {
             let name = data.name
             let title = data.title
-
+            console.log(state)
             fb.usersCollection.doc(state.currentUser.uid).update({ name, title }).then(user => {
                 // update all posts by user to reflect new name
                 fb.postsCollection.where('userId', '==', state.currentUser.uid).get().then(docs => {

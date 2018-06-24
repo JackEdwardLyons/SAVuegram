@@ -24,7 +24,7 @@
                     </div>
                 </transition>
                 <div v-if="posts.length">
-                    <div v-for="post in posts" class="post">
+                    <div v-for="(post, index) in posts" class="post" :key="index">
                         <h5>{{ post.userName }}</h5>
                         <span>{{ post.createdOn | formatDate }}</span>
                         <p>{{ post.content | trimLength }}</p>
@@ -70,7 +70,7 @@
                         </ul>
                     </div>
                     <div v-show="postComments.length" class="comments">
-                        <div v-for="comment in postComments" class="comment">
+                        <div v-for="comment in postComments" class="comment" :key="new Date(comment.createdOn)">
                             <p>{{ comment.userName }}</p>
                             <span>{{ comment.createdOn | formatDate }}</span>
                             <p>{{ comment.content }}</p>

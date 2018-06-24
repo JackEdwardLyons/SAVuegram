@@ -3,13 +3,14 @@ import 'firebase/firestore'
 
 // firebase init goes here
 const config = {
-	apiKey: "",
-	authDomain: "",
-	databaseURL: "",
-	projectId: "",
-	storageBucket: "",
-	messagingSenderId: ""
-}
+    apiKey: "AIzaSyANP1F-x1blg95WhQO0mFleKBQO4im5zMU",
+    authDomain: "vuegram-a69bc.firebaseapp.com",
+    databaseURL: "https://vuegram-a69bc.firebaseio.com",
+    projectId: "vuegram-a69bc",
+    storageBucket: "",
+    messagingSenderId: "820660589478"
+};
+
 firebase.initializeApp(config)
 
 // firebase utils
